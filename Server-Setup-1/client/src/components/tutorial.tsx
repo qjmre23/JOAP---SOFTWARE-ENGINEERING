@@ -40,20 +40,6 @@ const ADMIN_STEPS: TutorialStep[] = [
   },
   {
     path: "/",
-    target: "[data-testid='input-global-search']",
-    title: "Global Search",
-    narration: "This is the global search bar. You can search for items, orders, and customers from anywhere in the system. Just type at least 2 characters and results will appear instantly.",
-    mp3File: "tut2.mp3",
-    actions: [
-      { triggerTime: 0.5, type: "move", target: "[data-testid='input-global-search']" },
-      { triggerTime: 1.5, type: "click", target: "[data-testid='input-global-search']" },
-      { triggerTime: 2.5, type: "type", target: "[data-testid='input-global-search']", value: "steel", revert: true },
-      { triggerTime: 5, type: "clickFirst", target: "[data-testid^='search-result-']" },
-      { triggerTime: 8, type: "highlight", target: "[data-testid='input-global-search']", highlightType: "small-circle" },
-    ],
-  },
-  {
-    path: "/",
     target: "[data-testid='card-earnings']",
     title: "Dashboard Overview",
     narration: "This is your dashboard. It shows summary cards with total earnings, orders, customers, and pending balance. Each card has a trend badge showing percentage change compared to the previous period. You can filter each card by daily, weekly, monthly, or yearly.",
@@ -85,20 +71,6 @@ const ADMIN_STEPS: TutorialStep[] = [
   },
   {
     path: "/inventory",
-    target: "[data-testid='button-add-item']",
-    title: "Inventory Management",
-    narration: "This is the Inventory page. Here you can manage all your products. Click the Add Item button to add a new product with its name, category, price, quantity, and an optional image. As an admin, you can upload images directly.",
-    mp3File: "tut6.mp3",
-    actions: [
-      { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-inventory']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='button-add-item']" },
-      { triggerTime: 3.5, type: "click", target: "[data-testid='button-add-item']" },
-      { triggerTime: 4.5, type: "focusDialog" },
-      { triggerTime: 7.5, type: "click", target: "body", revert: true },
-    ],
-  },
-  {
-    path: "/inventory",
     target: "[data-testid='input-search-items']",
     title: "Search & Filter Inventory",
     narration: "You can search for items by name using this search bar. You can also filter by category and switch between grid view and list view. To adjust prices or deduct stock, click the actions menu on any item.",
@@ -111,36 +83,6 @@ const ADMIN_STEPS: TutorialStep[] = [
       { triggerTime: 5.5, type: "click", target: "[data-testid='button-toggle-view']" },
       { triggerTime: 6.5, type: "click", target: "[data-testid='button-toggle-view']" },
       { triggerTime: 8, type: "move", target: "[data-testid='input-search-items']" },
-    ],
-  },
-  {
-    path: "/orders",
-    target: "[data-testid='button-create-order']",
-    title: "Order Management",
-    narration: "This is the Orders page. Click Create Order to place a new order. You'll need to enter the customer name, select items and quantities, choose a sales channel, and optionally add a delivery address. The total amount calculates automatically.",
-    mp3File: "tut8.mp3",
-    actions: [
-      { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-orders']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='button-create-order']" },
-      { triggerTime: 3.5, type: "click", target: "[data-testid='button-create-order']" },
-      { triggerTime: 4.5, type: "focusDialog" },
-      { triggerTime: 7.5, type: "click", target: "body", revert: true },
-    ],
-  },
-  {
-    path: "/orders",
-    target: "[data-testid='tab-all']",
-    title: "Order Tabs",
-    narration: "Orders are organized by status tabs. You can view All orders, Pending Payment, Paid, Pending Release, Released, or Cancelled orders. Click on any order to see its full details, log payments, and update its status.",
-    mp3File: "tut9.mp3",
-    actions: [
-      { triggerTime: 0.5, type: "move", target: "[data-testid='tab-all']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='tab-pending-payment']" },
-      { triggerTime: 2.5, type: "click", target: "[data-testid='tab-pending-payment']" },
-      { triggerTime: 3.5, type: "move", target: "[data-testid='tab-paid']" },
-      { triggerTime: 4, type: "click", target: "[data-testid='tab-paid']" },
-      { triggerTime: 5, type: "move", target: "[data-testid='tab-all']" },
-      { triggerTime: 5.5, type: "click", target: "[data-testid='tab-all']" },
     ],
   },
   {
@@ -167,24 +109,6 @@ const ADMIN_STEPS: TutorialStep[] = [
       { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-accounting']" },
       { triggerTime: 2, type: "move", target: "[data-testid='button-add-entry']" },
       { triggerTime: 4, type: "hover", target: "[data-testid='button-add-entry']" },
-    ],
-  },
-  {
-    path: "/reports",
-    target: "[data-testid='tab-sales']",
-    title: "Reports",
-    narration: "The Reports page lets you generate sales reports, inventory reports, and financial summaries. You can filter by date range and export reports for your records.",
-    mp3File: "tut12.mp3",
-    actions: [
-      { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-reports']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='tab-sales']" },
-      { triggerTime: 3, type: "click", target: "[data-testid='tab-sales']" },
-      { triggerTime: 4, type: "move", target: "[data-testid='tab-inventory']" },
-      { triggerTime: 4.5, type: "click", target: "[data-testid='tab-inventory']" },
-      { triggerTime: 5.5, type: "move", target: "[data-testid='tab-forecast']" },
-      { triggerTime: 6, type: "click", target: "[data-testid='tab-forecast']" },
-      { triggerTime: 7, type: "move", target: "[data-testid='tab-sales']" },
-      { triggerTime: 7.5, type: "click", target: "[data-testid='tab-sales']" },
     ],
   },
   {
@@ -272,17 +196,6 @@ const EMPLOYEE_STEPS: TutorialStep[] = [
   },
   {
     path: "/",
-    target: "[data-testid='input-global-search']",
-    title: "Global Search",
-    narration: "Use this search bar to quickly find items, orders, or customers from anywhere in the system.",
-    mp3File: "tut2.mp3",
-    actions: [
-      { triggerTime: 0.5, type: "move", target: "[data-testid='input-global-search']" },
-      { triggerTime: 1.5, type: "click", target: "[data-testid='input-global-search']" },
-    ],
-  },
-  {
-    path: "/",
     target: "[data-testid='card-earnings']",
     title: "Dashboard",
     narration: "Your dashboard shows key business metrics: earnings, orders, customers, and pending balances. Each card can be filtered by time period.",
@@ -308,18 +221,6 @@ const EMPLOYEE_STEPS: TutorialStep[] = [
   },
   {
     path: "/inventory",
-    target: "[data-testid='button-add-item']",
-    title: "Inventory Management",
-    narration: "Here you manage inventory. You can add items, update quantities, and adjust prices. Note: when you upload an image for an item, it needs admin approval before it appears.",
-    mp3File: "tut5.mp3",
-    actions: [
-      { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-inventory']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='button-add-item']" },
-      { triggerTime: 4, type: "hover", target: "[data-testid='button-add-item']" },
-    ],
-  },
-  {
-    path: "/inventory",
     target: "[data-testid='input-search-items']",
     title: "Search Inventory",
     narration: "Search for items by name, filter by category, and switch between grid and list views. Use the actions menu to deduct stock or adjust prices.",
@@ -340,20 +241,6 @@ const EMPLOYEE_STEPS: TutorialStep[] = [
       { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-orders']" },
       { triggerTime: 2, type: "move", target: "[data-testid='button-create-order']" },
       { triggerTime: 4, type: "hover", target: "[data-testid='button-create-order']" },
-    ],
-  },
-  {
-    path: "/orders",
-    target: "[data-testid='tab-all']",
-    title: "Order Status",
-    narration: "View orders by status using these tabs. Click any order to see details, log payments, or update the order status as it progresses.",
-    mp3File: "tut8.mp3",
-    actions: [
-      { triggerTime: 0.5, type: "move", target: "[data-testid='tab-all']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='tab-pending-payment']" },
-      { triggerTime: 2.5, type: "click", target: "[data-testid='tab-pending-payment']" },
-      { triggerTime: 3.5, type: "move", target: "[data-testid='tab-all']" },
-      { triggerTime: 4, type: "click", target: "[data-testid='tab-all']" },
     ],
   },
   {
@@ -394,18 +281,6 @@ const EMPLOYEE_STEPS: TutorialStep[] = [
       { triggerTime: 4, type: "click", target: "[data-testid='tab-inventory']" },
       { triggerTime: 5, type: "click", target: "[data-testid='tab-sales']" },
       { triggerTime: 5, type: "move", target: "[data-testid='tab-sales']" },
-    ],
-  },
-  {
-    path: "/help",
-    target: "[data-testid='text-help-title']",
-    title: "Help",
-    narration: "Check the FAQs for answers to common questions, or send a message to your admin for help. That's everything you need to know! Enjoy using the system.",
-    mp3File: "tut12.mp3",
-    actions: [
-      { triggerTime: 0.3, type: "navigate", target: "[data-testid='nav-help']" },
-      { triggerTime: 2, type: "move", target: "[data-testid='text-help-title']" },
-      { triggerTime: 3, type: "scroll", target: "[data-testid='text-help-title']" },
     ],
   },
 ];
@@ -457,7 +332,7 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
 
   const steps = isAdmin ? ADMIN_STEPS : EMPLOYEE_STEPS;
   const step = steps[currentStep];
-  const SETTINGS_STEP_INDEX = isAdmin ? 13 : -1;
+  const SETTINGS_STEP_INDEX = isAdmin ? 7 : -1;
 
   const PREVIEW_THEMES = [
     { colorTheme: "purple", gradient: "purple-pink", font: "Poppins" },
@@ -569,6 +444,13 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
     }
   }, []);
 
+  const syncToEl = useCallback((el: Element) => {
+    const rect = el.getBoundingClientRect();
+    setCursorPos({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+    setSpotlightRect(rect);
+    targetElRef.current = el as HTMLElement;
+  }, []);
+
   const cleanup = useCallback(() => {
     stopAudio();
     if (wordTimerRef.current) { clearInterval(wordTimerRef.current); wordTimerRef.current = null; }
@@ -600,6 +482,20 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
     return () => { isMountedRef.current = false; cleanup(); };
   }, [cleanup]);
 
+  useEffect(() => {
+    const handleUpdatePos = () => {
+      if (targetElRef.current && (phase === "playing" || phase === "ready")) {
+        syncToEl(targetElRef.current);
+      }
+    };
+    window.addEventListener("resize", handleUpdatePos);
+    window.addEventListener("scroll", handleUpdatePos, true);
+    return () => {
+      window.removeEventListener("resize", handleUpdatePos);
+      window.removeEventListener("scroll", handleUpdatePos, true);
+    };
+  }, [phase, syncToEl]);
+
   const handleComplete = useCallback(() => {
     cleanup();
     onComplete(savedSettingsRef.current || undefined);
@@ -608,16 +504,13 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
   const showHighlight = useCallback((selector: string, guardId: number, attempt = 0) => {
     if (guardId !== stepIdRef.current) return;
     const el = document.querySelector(selector) as HTMLElement | null;
-    targetElRef.current = el;
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
       const timer = setTimeout(() => {
         if (!isMountedRef.current || guardId !== stepIdRef.current) return;
         if (pendingHighlightRef.current !== selector) return;
-        const rect = el.getBoundingClientRect();
-        setSpotlightRect(rect);
-        setCursorPos({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-      }, 500);
+        syncToEl(el);
+      }, 600); // Wait for scroll to settle
       actionTimersRef.current.push(timer);
     } else if (attempt < 8) {
       retryTimerRef.current = setTimeout(() => {
@@ -629,7 +522,7 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
       setSpotlightRect(null);
       setCursorPos(null);
     }
-  }, []);
+  }, [syncToEl]);
 
   const advanceStep = useCallback(() => {
     if (currentStep < steps.length - 1) {
@@ -653,13 +546,6 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
         } catch {}
       }
       return null;
-    };
-
-    const syncToEl = (el: Element) => {
-      const rect = el.getBoundingClientRect();
-      setCursorPos({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-      setSpotlightRect(rect);
-      targetElRef.current = el as HTMLElement;
     };
 
     switch (action.type) {
@@ -848,7 +734,7 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
         break;
       }
     }
-  }, []);
+  }, [syncToEl]);
 
   const scheduleActions = useCallback((actions: CursorAction[], guardId: number) => {
     actions.forEach(action => {
@@ -924,6 +810,11 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
       if (!isMountedRef.current || thisStepId !== stepIdRef.current) return;
 
       if (!isMuted) {
+        if (audioElRef.current) {
+          audioElRef.current.pause();
+          audioElRef.current.src = "";
+          audioElRef.current = null;
+        }
         const audio = new Audio();
         audioElRef.current = audio;
         const abortCtrl = new AbortController();
@@ -953,7 +844,7 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
           fallbackNoAudio();
         }, { once: true, signal });
 
-        audio.src = `/api/tutorial-audio/${mp3}`;
+        audio.src = `/api/tutorial-audio/${mp3}?t=${Date.now()}`;
         audio.load();
 
         const timeoutId = setTimeout(() => {
@@ -991,7 +882,7 @@ export function Tutorial({ isAdmin, onComplete }: TutorialProps) {
       stopAudio();
       actionTimersRef.current.forEach(t => clearTimeout(t));
     };
-  }, [currentStep]);
+  }, [currentStep, isMuted, navigate, scheduleActions, cleanup, steps.length, SETTINGS_STEP_INDEX, applyThemePreview, showHighlight]);
 
   const skipStep = () => {
     cleanup();
