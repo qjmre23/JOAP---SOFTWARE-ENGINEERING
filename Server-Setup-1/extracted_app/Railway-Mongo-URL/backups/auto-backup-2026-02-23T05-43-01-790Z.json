@@ -1,0 +1,1080 @@
+{
+  "items": [
+    {
+      "_id": "699974f322182be395a016b3",
+      "itemName": "GI Wire #16",
+      "category": "Wire",
+      "supplierName": "Steel Corp",
+      "unitPrice": 85,
+      "currentQuantity": 80,
+      "reorderLevel": 20,
+      "barcode": "WR001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b0",
+      "itemName": "Deformed Steel Bar 10mm",
+      "category": "Steel",
+      "supplierName": "Steel Asia",
+      "unitPrice": 185,
+      "currentQuantity": 0,
+      "reorderLevel": 50,
+      "barcode": "STL001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:14:10.382Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b6",
+      "itemName": "Roof Nail 3\"",
+      "category": "Nails",
+      "supplierName": "Metal Works",
+      "unitPrice": 120,
+      "currentQuantity": 5,
+      "reorderLevel": 15,
+      "barcode": "NL001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b1",
+      "itemName": "Hollow Blocks 4\"",
+      "category": "Masonry",
+      "supplierName": "Local Supplier",
+      "unitPrice": 12,
+      "currentQuantity": 500,
+      "reorderLevel": 100,
+      "barcode": "MSN001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b7",
+      "itemName": "Sand (per cubic meter)",
+      "category": "Aggregates",
+      "supplierName": "Quarry Supply",
+      "unitPrice": 1200,
+      "currentQuantity": 20,
+      "reorderLevel": 5,
+      "barcode": "AGG001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016af",
+      "itemName": "Portland Cement",
+      "category": "Cement",
+      "supplierName": "Republic Cement",
+      "unitPrice": 280,
+      "currentQuantity": 150,
+      "reorderLevel": 30,
+      "barcode": "CEM001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b4",
+      "itemName": "Paint Latex White 4L",
+      "category": "Paint",
+      "supplierName": "Boysen",
+      "unitPrice": 650,
+      "currentQuantity": 8,
+      "reorderLevel": 10,
+      "barcode": "PNT001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b5",
+      "itemName": "PVC Pipe 4\" x 10ft",
+      "category": "Plumbing",
+      "supplierName": "Atlanta Industries",
+      "unitPrice": 320,
+      "currentQuantity": 35,
+      "reorderLevel": 10,
+      "barcode": "PLB001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b2",
+      "itemName": "Plywood 1/4\" Marine",
+      "category": "Wood",
+      "supplierName": "Wood Industries",
+      "unitPrice": 450,
+      "currentQuantity": 45,
+      "reorderLevel": 15,
+      "barcode": "WD001",
+      "createdAt": "2026-02-21T09:03:47.702Z",
+      "updatedAt": "2026-02-21T09:03:47.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016b8",
+      "itemName": "Gravel (per cubic meter)",
+      "category": "Aggregates",
+      "supplierName": "Quarry Supply",
+      "unitPrice": 1400,
+      "currentQuantity": 18,
+      "reorderLevel": 5,
+      "barcode": "AGG002",
+      "createdAt": "2026-02-21T09:03:47.703Z",
+      "updatedAt": "2026-02-21T09:03:47.703Z",
+      "__v": 0
+    },
+    {
+      "_id": "699985b816ccb66208e29ec2",
+      "itemName": "Test Hammer XL",
+      "category": "Tools",
+      "supplierName": "ToolMaster Inc",
+      "unitPrice": 299,
+      "currentQuantity": 50,
+      "reorderLevel": 10,
+      "barcode": "",
+      "createdAt": "2026-02-21T10:15:20.717Z",
+      "updatedAt": "2026-02-21T10:15:59.888Z",
+      "__v": 0
+    },
+    {
+      "_id": "69998760a660a9abacf953a1",
+      "itemName": "Test Nail Box",
+      "category": "Nails",
+      "supplierName": "NailCo",
+      "unitPrice": 150,
+      "currentQuantity": 100,
+      "reorderLevel": 20,
+      "barcode": "",
+      "createdAt": "2026-02-21T10:22:24.388Z",
+      "updatedAt": "2026-02-21T10:22:24.388Z",
+      "__v": 0
+    },
+    {
+      "_id": "6999880b4fc304d7792099a1",
+      "itemName": "Test Plywood Sheet",
+      "category": "Wood",
+      "supplierName": "WoodWorks",
+      "unitPrice": 450,
+      "currentQuantity": 27,
+      "reorderLevel": 5,
+      "barcode": "",
+      "createdAt": "2026-02-21T10:25:15.908Z",
+      "updatedAt": "2026-02-21T10:32:28.731Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be7e6a083fd8bdae014f6",
+      "itemName": "Test Widget ABC123",
+      "category": "Tools",
+      "supplierName": "Test Supplier",
+      "unitPrice": 250,
+      "currentQuantity": 50,
+      "reorderLevel": 10,
+      "barcode": "",
+      "imageFilename": "",
+      "imagePending": false,
+      "pendingImageFilename": "",
+      "pendingImageUploadedBy": "",
+      "createdAt": "2026-02-23T05:38:46.686Z",
+      "updatedAt": "2026-02-23T05:38:46.686Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be8c008ac1fd25e237aae",
+      "itemName": "TestItem_E2E_123",
+      "category": "Hardware",
+      "supplierName": "SupplierCo",
+      "unitPrice": 150,
+      "currentQuantity": 25,
+      "reorderLevel": 5,
+      "barcode": "",
+      "imageFilename": "",
+      "imagePending": false,
+      "pendingImageFilename": "",
+      "pendingImageUploadedBy": "",
+      "createdAt": "2026-02-23T05:42:24.444Z",
+      "updatedAt": "2026-02-23T05:42:24.444Z",
+      "__v": 0
+    }
+  ],
+  "customers": [
+    {
+      "_id": "699974f322182be395a016a0",
+      "name": "Juan Dela Cruz",
+      "email": "juan@email.com",
+      "phone": "09171234567",
+      "address": "123 Rizal St, Manila",
+      "createdAt": "2026-02-21T09:03:47.532Z",
+      "updatedAt": "2026-02-21T09:03:47.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016a1",
+      "name": "Maria Santos",
+      "email": "maria@email.com",
+      "phone": "09189876543",
+      "address": "456 Bonifacio Ave, Quezon City",
+      "createdAt": "2026-02-21T09:03:47.532Z",
+      "updatedAt": "2026-02-21T09:03:47.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016a2",
+      "name": "Pedro Reyes",
+      "email": "pedro@email.com",
+      "phone": "09201112233",
+      "address": "789 Mabini Rd, Makati",
+      "createdAt": "2026-02-21T09:03:47.532Z",
+      "updatedAt": "2026-02-21T09:03:47.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016a4",
+      "name": "Roberto Lim",
+      "email": "roberto@email.com",
+      "phone": "09167788990",
+      "address": "654 Del Pilar Blvd, Taguig",
+      "createdAt": "2026-02-21T09:03:47.532Z",
+      "updatedAt": "2026-02-21T09:03:47.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016a3",
+      "name": "Ana Garcia",
+      "email": "ana@email.com",
+      "phone": "09154455667",
+      "address": "321 Luna St, Pasig",
+      "createdAt": "2026-02-21T09:03:47.532Z",
+      "updatedAt": "2026-02-21T09:03:47.532Z",
+      "__v": 0
+    }
+  ],
+  "orders": [
+    {
+      "_id": "699988584fc304d7792099bc",
+      "trackingNumber": "JOAP-MLW6BYMU-6N6Q",
+      "customerName": "Pedro Reyes",
+      "items": [
+        {
+          "itemId": "6999880b4fc304d7792099a1",
+          "itemName": "Test Plywood Sheet",
+          "quantity": 3,
+          "unitPrice": 450,
+          "lineTotal": 1350
+        }
+      ],
+      "totalAmount": 1350,
+      "sourceChannel": "walk-in",
+      "notes": "",
+      "currentStatus": "Completed",
+      "statusHistory": [
+        {
+          "status": "Pending Payment",
+          "timestamp": "2026-02-21T10:26:32.598Z",
+          "actor": "admin",
+          "note": "Order created"
+        },
+        {
+          "status": "Paid",
+          "timestamp": "2026-02-21T10:32:11.653Z",
+          "actor": "admin",
+          "note": "Payment of 1350 received via GCash"
+        },
+        {
+          "status": "Pending Release",
+          "timestamp": "2026-02-21T10:32:11.653Z",
+          "actor": "admin",
+          "note": "Payment confirmed, awaiting release"
+        },
+        {
+          "status": "Released",
+          "timestamp": "2026-02-21T10:32:28.814Z",
+          "actor": "admin",
+          "note": "Items released from inventory"
+        },
+        {
+          "status": "Completed",
+          "timestamp": "2026-02-21T10:32:28.814Z",
+          "actor": "admin",
+          "note": "Order fulfilled"
+        }
+      ],
+      "createdAt": "2026-02-21T10:26:32.603Z",
+      "updatedAt": "2026-02-21T10:32:28.818Z",
+      "__v": 2
+    }
+  ],
+  "payments": [
+    {
+      "_id": "699989abf0782ab619263e23",
+      "orderId": "699988584fc304d7792099bc",
+      "paymentMethod": "GCash",
+      "gcashNumber": "90889",
+      "gcashReferenceNumber": "89895455",
+      "amountPaid": 1350,
+      "paymentDate": "2026-02-21T10:32:11.610Z",
+      "proofNote": "",
+      "loggedBy": "admin",
+      "createdAt": "2026-02-21T10:32:11.612Z",
+      "updatedAt": "2026-02-21T10:32:11.612Z",
+      "__v": 0
+    }
+  ],
+  "inventoryLogs": [
+    {
+      "_id": "69997741e28660fbe1d09bdd",
+      "itemId": "699974f322182be395a016b0",
+      "itemName": "Deformed Steel Bar 10mm",
+      "type": "deduction",
+      "quantity": -5,
+      "reason": "testing",
+      "actor": "admin",
+      "createdAt": "2026-02-21T09:13:37.971Z",
+      "updatedAt": "2026-02-21T09:13:37.971Z",
+      "__v": 0
+    },
+    {
+      "_id": "69997762e28660fbe1d09beb",
+      "itemId": "699974f322182be395a016b0",
+      "itemName": "Deformed Steel Bar 10mm",
+      "type": "deduction",
+      "quantity": -195,
+      "reason": "testing",
+      "actor": "admin",
+      "createdAt": "2026-02-21T09:14:10.423Z",
+      "updatedAt": "2026-02-21T09:14:10.423Z",
+      "__v": 0
+    },
+    {
+      "_id": "699985b816ccb66208e29ec4",
+      "itemId": "699985b816ccb66208e29ec2",
+      "itemName": "Test Hammer XL",
+      "type": "restock",
+      "quantity": 50,
+      "reason": "Initial stock",
+      "actor": "admin",
+      "createdAt": "2026-02-21T10:15:20.758Z",
+      "updatedAt": "2026-02-21T10:15:20.758Z",
+      "__v": 0
+    },
+    {
+      "_id": "69998760a660a9abacf953a3",
+      "itemId": "69998760a660a9abacf953a1",
+      "itemName": "Test Nail Box",
+      "type": "restock",
+      "quantity": 100,
+      "reason": "Initial stock",
+      "actor": "admin",
+      "createdAt": "2026-02-21T10:22:24.429Z",
+      "updatedAt": "2026-02-21T10:22:24.429Z",
+      "__v": 0
+    },
+    {
+      "_id": "6999880b4fc304d7792099a3",
+      "itemId": "6999880b4fc304d7792099a1",
+      "itemName": "Test Plywood Sheet",
+      "type": "restock",
+      "quantity": 30,
+      "reason": "Initial stock",
+      "actor": "admin",
+      "createdAt": "2026-02-21T10:25:15.952Z",
+      "updatedAt": "2026-02-21T10:25:15.952Z",
+      "__v": 0
+    },
+    {
+      "_id": "699989bcf0782ab619263e69",
+      "itemId": "6999880b4fc304d7792099a1",
+      "itemName": "Test Plywood Sheet",
+      "type": "deduction",
+      "quantity": -3,
+      "reason": "Released for order JOAP-MLW6BYMU-6N6Q",
+      "actor": "admin",
+      "createdAt": "2026-02-21T10:32:28.773Z",
+      "updatedAt": "2026-02-21T10:32:28.773Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be7e6a083fd8bdae014f8",
+      "itemId": "699be7e6a083fd8bdae014f6",
+      "itemName": "Test Widget ABC123",
+      "type": "restock",
+      "quantity": 50,
+      "reason": "Initial stock",
+      "actor": "admin",
+      "createdAt": "2026-02-23T05:38:46.729Z",
+      "updatedAt": "2026-02-23T05:38:46.729Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be8c008ac1fd25e237ab0",
+      "itemId": "699be8c008ac1fd25e237aae",
+      "itemName": "TestItem_E2E_123",
+      "type": "restock",
+      "quantity": 25,
+      "reason": "Initial stock",
+      "actor": "admin",
+      "createdAt": "2026-02-23T05:42:24.490Z",
+      "updatedAt": "2026-02-23T05:42:24.490Z",
+      "__v": 0
+    }
+  ],
+  "accounts": [
+    {
+      "_id": "699974f322182be395a016c8",
+      "accountCode": "4000",
+      "accountName": "Sales Revenue",
+      "accountType": "Revenue",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016c3",
+      "accountCode": "1000",
+      "accountName": "Cash/GCash",
+      "accountType": "Asset",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016c5",
+      "accountCode": "1200",
+      "accountName": "Inventory",
+      "accountType": "Asset",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016ca",
+      "accountCode": "5100",
+      "accountName": "Operating Expenses",
+      "accountType": "Expense",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016c4",
+      "accountCode": "1100",
+      "accountName": "Accounts Receivable",
+      "accountType": "Asset",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016c7",
+      "accountCode": "3000",
+      "accountName": "Owner's Equity",
+      "accountType": "Equity",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016c6",
+      "accountCode": "2000",
+      "accountName": "Accounts Payable",
+      "accountType": "Liability",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a016c9",
+      "accountCode": "5000",
+      "accountName": "Cost of Goods Sold",
+      "accountType": "Expense",
+      "balance": 0,
+      "createdAt": "2026-02-21T09:03:47.886Z",
+      "updatedAt": "2026-02-21T09:03:47.886Z",
+      "__v": 0
+    }
+  ],
+  "ledger": [
+    {
+      "_id": "699989abf0782ab619263e26",
+      "date": "2026-02-21T10:32:11.697Z",
+      "accountName": "Cash/GCash",
+      "debit": 1350,
+      "credit": 0,
+      "description": "Payment for order JOAP-MLW6BYMU-6N6Q",
+      "referenceType": "payment",
+      "referenceId": "699989abf0782ab619263e23",
+      "isReversing": false,
+      "actor": "admin",
+      "createdAt": "2026-02-21T10:32:11.700Z",
+      "updatedAt": "2026-02-21T10:32:11.700Z",
+      "__v": 0
+    },
+    {
+      "_id": "699989abf0782ab619263e27",
+      "date": "2026-02-21T10:32:11.698Z",
+      "accountName": "Sales Revenue",
+      "debit": 0,
+      "credit": 1350,
+      "description": "Revenue from order JOAP-MLW6BYMU-6N6Q",
+      "referenceType": "payment",
+      "referenceId": "699989abf0782ab619263e23",
+      "isReversing": false,
+      "actor": "admin",
+      "createdAt": "2026-02-21T10:32:11.700Z",
+      "updatedAt": "2026-02-21T10:32:11.700Z",
+      "__v": 0
+    }
+  ],
+  "settings": [
+    {
+      "_id": "699974f322182be395a016d3",
+      "companyName": "JOAP Hardware Trading",
+      "theme": "light",
+      "reorderThreshold": 10,
+      "lowStockThreshold": 20,
+      "createdAt": "2026-02-21T09:03:47.928Z",
+      "updatedAt": "2026-02-23T05:13:56.446Z",
+      "__v": 0,
+      "colorTheme": "amber",
+      "font": "Roboto",
+      "gradient": "none"
+    }
+  ],
+  "systemLogs": [
+    {
+      "_id": "6999761ac971ef8e328a44ce",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T09:08:42.653Z",
+      "updatedAt": "2026-02-21T09:08:42.653Z",
+      "__v": 0
+    },
+    {
+      "_id": "6999767de28660fbe1d09b77",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T09:10:21.148Z",
+      "updatedAt": "2026-02-21T09:10:21.148Z",
+      "__v": 0
+    },
+    {
+      "_id": "69997690e28660fbe1d09bbc",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20
+      },
+      "createdAt": "2026-02-21T09:10:40.881Z",
+      "updatedAt": "2026-02-21T09:10:40.881Z",
+      "__v": 0
+    },
+    {
+      "_id": "69997742e28660fbe1d09bdf",
+      "action": "INVENTORY_LOG_CREATED",
+      "actor": "admin",
+      "target": "Deformed Steel Bar 10mm",
+      "metadata": {
+        "type": "deduction",
+        "quantity": -5
+      },
+      "createdAt": "2026-02-21T09:13:38.012Z",
+      "updatedAt": "2026-02-21T09:13:38.012Z",
+      "__v": 0
+    },
+    {
+      "_id": "69997762e28660fbe1d09bed",
+      "action": "INVENTORY_LOG_CREATED",
+      "actor": "admin",
+      "target": "Deformed Steel Bar 10mm",
+      "metadata": {
+        "type": "deduction",
+        "quantity": -195
+      },
+      "createdAt": "2026-02-21T09:14:10.464Z",
+      "updatedAt": "2026-02-21T09:14:10.464Z",
+      "__v": 0
+    },
+    {
+      "_id": "69997dc4e28660fbe1d09e07",
+      "action": "USER_LOGOUT",
+      "actor": "admin",
+      "target": "",
+      "createdAt": "2026-02-21T09:41:24.036Z",
+      "updatedAt": "2026-02-21T09:41:24.036Z",
+      "__v": 0
+    },
+    {
+      "_id": "69997dc6e28660fbe1d09e0c",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T09:41:26.683Z",
+      "updatedAt": "2026-02-21T09:41:26.683Z",
+      "__v": 0
+    },
+    {
+      "_id": "699982d3428c862b8f583f7f",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T10:02:59.585Z",
+      "updatedAt": "2026-02-21T10:02:59.585Z",
+      "__v": 0
+    },
+    {
+      "_id": "69998342428c862b8f58402e",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "blue",
+        "gradient": "blue-purple"
+      },
+      "createdAt": "2026-02-21T10:04:50.544Z",
+      "updatedAt": "2026-02-21T10:04:50.544Z",
+      "__v": 0
+    },
+    {
+      "_id": "69998351428c862b8f58404c",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "PT Sans",
+        "colorTheme": "orange",
+        "gradient": "teal-cyan"
+      },
+      "createdAt": "2026-02-21T10:05:05.088Z",
+      "updatedAt": "2026-02-21T10:05:05.088Z",
+      "__v": 0
+    },
+    {
+      "_id": "699983a53d3780d417b610b2",
+      "action": "USER_CREATED",
+      "actor": "admin",
+      "target": "adminrer",
+      "metadata": {
+        "role": "EMPLOYEE"
+      },
+      "createdAt": "2026-02-21T10:06:29.371Z",
+      "updatedAt": "2026-02-21T10:06:29.371Z",
+      "__v": 0
+    },
+    {
+      "_id": "699983b23d3780d417b610bf",
+      "action": "USER_STATUS_CHANGED",
+      "actor": "admin",
+      "target": "employee",
+      "metadata": {
+        "isActive": false
+      },
+      "createdAt": "2026-02-21T10:06:42.690Z",
+      "updatedAt": "2026-02-21T10:06:42.690Z",
+      "__v": 0
+    },
+    {
+      "_id": "699983c13d3780d417b610cf",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "PT Sans",
+        "colorTheme": "orange",
+        "gradient": "teal-cyan"
+      },
+      "createdAt": "2026-02-21T10:06:57.808Z",
+      "updatedAt": "2026-02-21T10:06:57.808Z",
+      "__v": 0
+    },
+    {
+      "_id": "699985657b8008fd80cda11b",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "purple",
+        "gradient": "red-rose"
+      },
+      "createdAt": "2026-02-21T10:13:57.050Z",
+      "updatedAt": "2026-02-21T10:13:57.050Z",
+      "__v": 0
+    },
+    {
+      "_id": "6999859216ccb66208e29e92",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T10:14:42.268Z",
+      "updatedAt": "2026-02-21T10:14:42.268Z",
+      "__v": 0
+    },
+    {
+      "_id": "699985b816ccb66208e29ec6",
+      "action": "ITEM_CREATED",
+      "actor": "admin",
+      "target": "Test Hammer XL",
+      "createdAt": "2026-02-21T10:15:20.799Z",
+      "updatedAt": "2026-02-21T10:15:20.799Z",
+      "__v": 0
+    },
+    {
+      "_id": "699985df16ccb66208e29ed5",
+      "action": "ITEM_PRICE_ADJUSTED",
+      "actor": "admin",
+      "target": "Test Hammer XL",
+      "metadata": {
+        "unitPrice": 299
+      },
+      "createdAt": "2026-02-21T10:15:59.931Z",
+      "updatedAt": "2026-02-21T10:15:59.931Z",
+      "__v": 0
+    },
+    {
+      "_id": "69998747a660a9abacf95371",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T10:21:59.942Z",
+      "updatedAt": "2026-02-21T10:21:59.942Z",
+      "__v": 0
+    },
+    {
+      "_id": "69998760a660a9abacf953a5",
+      "action": "ITEM_CREATED",
+      "actor": "admin",
+      "target": "Test Nail Box",
+      "createdAt": "2026-02-21T10:22:24.469Z",
+      "updatedAt": "2026-02-21T10:22:24.469Z",
+      "__v": 0
+    },
+    {
+      "_id": "699987f44fc304d779209971",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T10:24:52.175Z",
+      "updatedAt": "2026-02-21T10:24:52.175Z",
+      "__v": 0
+    },
+    {
+      "_id": "6999880b4fc304d7792099a5",
+      "action": "ITEM_CREATED",
+      "actor": "admin",
+      "target": "Test Plywood Sheet",
+      "createdAt": "2026-02-21T10:25:15.994Z",
+      "updatedAt": "2026-02-21T10:25:15.994Z",
+      "__v": 0
+    },
+    {
+      "_id": "699988584fc304d7792099be",
+      "action": "ORDER_CREATED",
+      "actor": "admin",
+      "target": "JOAP-MLW6BYMU-6N6Q",
+      "metadata": {
+        "totalAmount": 1350
+      },
+      "createdAt": "2026-02-21T10:26:32.644Z",
+      "updatedAt": "2026-02-21T10:26:32.644Z",
+      "__v": 0
+    },
+    {
+      "_id": "6999888a4fc304d7792099d2",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "light",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "purple",
+        "gradient": "red-rose"
+      },
+      "createdAt": "2026-02-21T10:27:22.059Z",
+      "updatedAt": "2026-02-21T10:27:22.059Z",
+      "__v": 0
+    },
+    {
+      "_id": "699988974fc304d7792099dc",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "purple",
+        "gradient": "red-rose"
+      },
+      "createdAt": "2026-02-21T10:27:35.089Z",
+      "updatedAt": "2026-02-21T10:27:35.089Z",
+      "__v": 0
+    },
+    {
+      "_id": "699988ca4fc304d7792099f6",
+      "action": "USER_LOGOUT",
+      "actor": "admin",
+      "target": "",
+      "createdAt": "2026-02-21T10:28:26.814Z",
+      "updatedAt": "2026-02-21T10:28:26.814Z",
+      "__v": 0
+    },
+    {
+      "_id": "699989abf0782ab619263e2a",
+      "action": "PAYMENT_LOGGED",
+      "actor": "admin",
+      "target": "JOAP-MLW6BYMU-6N6Q",
+      "metadata": {
+        "amount": 1350
+      },
+      "createdAt": "2026-02-21T10:32:11.742Z",
+      "updatedAt": "2026-02-21T10:32:11.742Z",
+      "__v": 0
+    },
+    {
+      "_id": "699989bcf0782ab619263e6c",
+      "action": "ORDER_RELEASED",
+      "actor": "admin",
+      "target": "JOAP-MLW6BYMU-6N6Q",
+      "createdAt": "2026-02-21T10:32:28.861Z",
+      "updatedAt": "2026-02-21T10:32:28.861Z",
+      "__v": 0
+    },
+    {
+      "_id": "699989e7f0782ab619263e8e",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "dark",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "amber",
+        "gradient": "purple-pink"
+      },
+      "createdAt": "2026-02-21T10:33:11.309Z",
+      "updatedAt": "2026-02-21T10:33:11.309Z",
+      "__v": 0
+    },
+    {
+      "_id": "699992f0ecd05567c8e194f4",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-21T11:11:44.679Z",
+      "updatedAt": "2026-02-21T11:11:44.679Z",
+      "__v": 0
+    },
+    {
+      "_id": "699aad0600dbc6d30d23f5c7",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-22T07:15:18.936Z",
+      "updatedAt": "2026-02-22T07:15:18.936Z",
+      "__v": 0
+    },
+    {
+      "_id": "699aae6200dbc6d30d23f635",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-22T07:21:06.671Z",
+      "updatedAt": "2026-02-22T07:21:06.671Z",
+      "__v": 0
+    },
+    {
+      "_id": "699aaf7b00dbc6d30d23f713",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-22T07:25:47.926Z",
+      "updatedAt": "2026-02-22T07:25:47.926Z",
+      "__v": 0
+    },
+    {
+      "_id": "699bb864a0837241dfef3323",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-23T02:16:04.441Z",
+      "updatedAt": "2026-02-23T02:16:04.441Z",
+      "__v": 0
+    },
+    {
+      "_id": "699bb9ada99893dcb826397c",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-23T02:21:33.252Z",
+      "updatedAt": "2026-02-23T02:21:33.252Z",
+      "__v": 0
+    },
+    {
+      "_id": "699bd8d1cacc18000bd9ebad",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-23T04:34:25.167Z",
+      "updatedAt": "2026-02-23T04:34:25.167Z",
+      "__v": 0
+    },
+    {
+      "_id": "699bdfddb1a764eff44b08e8",
+      "action": "BACKUP_CREATED",
+      "actor": "admin",
+      "target": "",
+      "createdAt": "2026-02-23T05:04:29.709Z",
+      "updatedAt": "2026-02-23T05:04:29.709Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be20cb1a764eff44b0966",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "light",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "amber",
+        "gradient": "purple-pink"
+      },
+      "createdAt": "2026-02-23T05:13:48.582Z",
+      "updatedAt": "2026-02-23T05:13:48.582Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be214b1a764eff44b0970",
+      "action": "SETTINGS_CHANGED",
+      "actor": "admin",
+      "target": "",
+      "metadata": {
+        "companyName": "JOAP Hardware Trading",
+        "theme": "light",
+        "reorderThreshold": 10,
+        "lowStockThreshold": 20,
+        "font": "Roboto",
+        "colorTheme": "amber",
+        "gradient": "none"
+      },
+      "createdAt": "2026-02-23T05:13:56.488Z",
+      "updatedAt": "2026-02-23T05:13:56.488Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be798a083fd8bdae014bd",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "createdAt": "2026-02-23T05:37:28.151Z",
+      "updatedAt": "2026-02-23T05:37:28.151Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be7e6a083fd8bdae014fa",
+      "action": "ITEM_CREATED",
+      "actor": "admin",
+      "target": "Test Widget ABC123",
+      "createdAt": "2026-02-23T05:38:46.769Z",
+      "updatedAt": "2026-02-23T05:38:46.769Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be87708ac1fd25e237a75",
+      "action": "USER_LOGIN",
+      "actor": "admin",
+      "target": "admin",
+      "metadata": {
+        "previousSessionTerminated": true
+      },
+      "createdAt": "2026-02-23T05:41:11.377Z",
+      "updatedAt": "2026-02-23T05:41:11.377Z",
+      "__v": 0
+    },
+    {
+      "_id": "699be8c008ac1fd25e237ab2",
+      "action": "ITEM_CREATED",
+      "actor": "admin",
+      "target": "TestItem_E2E_123",
+      "createdAt": "2026-02-23T05:42:24.533Z",
+      "updatedAt": "2026-02-23T05:42:24.533Z",
+      "__v": 0
+    }
+  ],
+  "users": [
+    {
+      "_id": "699974f322182be395a0169a",
+      "username": "admin",
+      "role": "ADMIN",
+      "isActive": true,
+      "createdAt": "2026-02-21T09:03:47.464Z",
+      "updatedAt": "2026-02-21T09:03:47.464Z",
+      "__v": 0
+    },
+    {
+      "_id": "699974f322182be395a0169b",
+      "username": "employee",
+      "role": "EMPLOYEE",
+      "isActive": false,
+      "createdAt": "2026-02-21T09:03:47.464Z",
+      "updatedAt": "2026-02-21T10:06:42.606Z",
+      "__v": 0
+    },
+    {
+      "_id": "699983a53d3780d417b610b0",
+      "username": "adminrer",
+      "role": "EMPLOYEE",
+      "isActive": true,
+      "createdAt": "2026-02-21T10:06:29.327Z",
+      "updatedAt": "2026-02-21T10:06:29.327Z",
+      "__v": 0
+    }
+  ],
+  "exportDate": "2026-02-23T05:43:01.788Z"
+}

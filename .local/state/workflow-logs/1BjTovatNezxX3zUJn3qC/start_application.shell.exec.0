@@ -1,0 +1,20 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K/home/runner/workspace/Server-Setup-1/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:131
+            const err = new MongooseError(message);
+                        ^
+
+MongooseError: Operation `settings.findOne()` buffering timed out after 10000ms
+    at Timeout._onTimeout [90m(/home/runner/workspace/Server-Setup-1/[39mnode_modules/[4mmongoose[24m/lib/drivers/node-mongodb-native/collection.js:131:25[90m)[39m
+[90m    at listOnTimeout (node:internal/timers:581:17)[39m
+[90m    at process.processTimers (node:internal/timers:519:7)[39m
+
+Node.js v20.20.0
+[1G[0K⠙[1G[0K[1mnpm[22m [96mnotice[39m
+[1mnpm[22m [96mnotice[39m New [31mmajor[39m version of npm available! [31m10.8.2[39m -> [34m11.11.1[39m
+[1mnpm[22m [96mnotice[39m Changelog: [34mhttps://github.com/npm/cli/releases/tag/v11.11.1[39m
+[1mnpm[22m [96mnotice[39m To update run: [4mnpm install -g npm@11.11.1[24m
+[1mnpm[22m [96mnotice[39m
+[1G[0K⠙[1G[0K

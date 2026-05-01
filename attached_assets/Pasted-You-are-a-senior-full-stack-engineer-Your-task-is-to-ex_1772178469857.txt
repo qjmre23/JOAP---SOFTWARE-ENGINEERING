@@ -1,0 +1,36 @@
+You are a senior full-stack engineer. Your task is to examine the existing JOAP Supplier Management System repository (TypeScript/Node/React stack) and ensure it fully matches the PDF requirements. The current implementation includes hashing-based lookups, trie search, FIFO inventory deduction, ARIMA-like forecasts, bcrypt password hashing, inventory/orders/billing/accounting modules, and basic UI pages. Do not remove or break existing features, but expand and refine them.
+
+The audio in tutorial 2 is playing tut1.mp3 it should be tut2.mp3.
+The audio in tutorial 6 is playing tut5.mp3 it should be tut6.mp3.
+The audio in tutorial 9 is playing tut8.mp3 it should be tut9.mp3.
+The audio in tutorial 13 is playing tut12.mp3 it should be tut13.mp3.
+
+The system must implement a secure email-based forgot password flow using Resend email service. Integrate Resend using the API key configuration already provided in the project and send reset emails using the resend.emails.send method. When a user requests a password reset, check the role of the account. If the account belongs to an EMPLOYEE, do not generate a reset token and display the message “Please contact your admin”. Only ADMIN accounts are allowed to perform self-service password reset.
+
+For ADMIN forgot password, generate a secure random reset token, store it in the User document with an expiry timestamp, and send the reset link or temporary password to the user’s registered email using Resend. The reset token must be invalidated after use. The system must include endpoints to generate reset tokens and to verify and update the password. When password reset is completed successfully, clear token fields and log the action in SystemLog.
+
+Extend the user profile settings so that authenticated users can view, edit, and update their email address from their profile page. Email changes must be validated, saved in MongoDB, and used as the destination for future password reset emails. Only the account owner or admin may modify the email. UI must include form validation and success/error feedback.
+
+Implement reversing entries in accounting. Create routes under /api/accounting/reversals allowing admin users to select existing ledger entries and create reversing entries with opposite debit and credit values. Link reversing entries to their original records and maintain append-only audit behavior. Add accounting UI where admins can view ledger entries and trigger reversing entries with confirmation. Update summaries and charts to include reversing data.
+
+Implement full forgot password endpoints including token generation and reset verification with proper validation and secure storage. Add client pages for requesting password reset and submitting new password. Provide success and error feedback using toasts.
+
+Expand real-time dashboard functionality using Socket.IO. Emit ORDER_CREATED, ORDER_PAID, ORDER_RELEASED, INVENTORY_LOG_CREATED, and LEDGER_POSTED events. Modify the client dashboard to subscribe to these events and update charts, KPI cards, and metrics automatically without page refresh. Ensure revenue and inventory charts update instantly after related operations.
+
+Implement partial payment support. Allow multiple payments per order, store total amountPaid, and track payment status. Orders should only transition to Paid or Pending Release when the full amount is satisfied. Provide UI to log additional payments including GCash number and reference validation.
+
+Improve inventory and accounting adjustment interfaces. Provide clear adjusting-entry modal in inventory for positive or negative adjustments with reasons. Add dedicated reversing entry interface in accounting.
+
+Enhance global search UI to display grouped results by entity type with prefix suggestions from trie and hashing-based lookup. Suggestions must be clickable and navigate to records. Ensure trie cache rebuilds when relevant data changes and MongoDB indexes are maintained.
+
+Complete the reports module by integrating forecasting routes into a full reports section with filters, ARIMA-based or ARIMA-like forecasting charts, CSV and PDF export options, and backend forecast generation.
+
+Implement maintenance and settings UI including admin-only backup and restore operations with JSON download and upload, restore validation, and logging. Provide settings page for company name, reorder threshold, and theme preferences stored in MongoDB.
+
+Refine Help and About pages. Help must include FAQs, feedback form stored in SystemLog or a feedback collection, and admin message handling. About must display system version, technology stack, and developer credit JOAP HARDWARE.
+
+Ensure hashing lookup and trie prefix search are both used by the search API and documented in code comments. Ensure indexes exist and trie rebuild logic is triggered on data updates.
+
+Update documentation and README to explain reversing entries, email-based password reset using Resend, real-time updates, partial payments, forecasting, and system architecture. Document how the implementation satisfies the PDF requirements.
+
+After implementing all changes, output a clear summary describing which algorithms are integrated, new endpoints and models created, changes made to existing files, and how real-time charts, partial payments, reversing entries, and the admin-only email password reset system function. Ensure the system builds and runs successfully without breaking existing functionality.

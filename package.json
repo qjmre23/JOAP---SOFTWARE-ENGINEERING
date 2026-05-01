@@ -1,0 +1,18 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd Server-Setup-1 && npm run dev",
+    "build": "cd Server-Setup-1 && npm install --legacy-peer-deps && npm run build",
+    "start": "cd Server-Setup-1 && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "resend": "^6.9.2",
+    "tsx": "^4.21.0"
+  }
+}

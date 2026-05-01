@@ -1,0 +1,26 @@
+errors:
+the audio in tut1 loops to all tuts
+- the mouse dont follow when the target was click. in tut 1, the sidebar goes to left but mouse did not follow
+in tut2, after typing it must enter, then display that, then click that item
+in tut3, the focus did not change to total orders, customerts, and pending balance. the focus highlight only stays in the total earnings but the mouse switch fine
+in tut3 as well, after mentioning the daily,weekly, month, year, it did not click the drop down of total earning, it should be click, switch, etc
+in tut4, the mouse did not move, did not click the february node(this will click random nodes but if theres only 1 node or 1 data, click that to chat. if no data, click anything and type, ask, chat the ai.
+in tut5, it did not click the red point, and chat the ai, it should randomly click anything and chat the ai, and ai must respond with voice.
+note that on every action like clicking the send, the mouse animation should click the send button as well. that applies to all action on tuts
+in tut6, after clicking add item button, shift the focus on the div of adding item
+in tut7. after typing shift the focus to the results below
+in tut8, after clicking creating order button, shift the focus on the div of creating order
+in tut9, the mouse follow the switch to pending payment, req, released, completed but the light focus did not follow. it must follow the mouse
+in tut 10, it did not highlight the billing tab despite the mouse clicking it. 
+in tut 11, it did not highlight the accounting tab despite the mouse clicking it. 
+in tut 12, it did not highlight the reports tab despite the mouse clicking it. also the light focus did not follow the mouse clicking the inventory, forcast
+in tut 13, it did not highlight the user tab despite the mouse clicking it. also after clicking and highlighting the create user button, switch the focus the div that will popup (create user)
+in tut 14, it did not highlight the setting tab despite the mouse clicking it. after that the mouse did not click the theme drop down, it must be  click, shown in the highlight, after clicking, scroll down and switch the focus and mouse to the button "save" button
+in tut 15, it did not highlight the maintenance tab despite the mouse clicking it. 
+in tut 16, it did not highlight Ahe system logs tab despite the mouse clicking it. 
+also after searching switch the mouse and highlight showing the search result
+in tut 17, it did not highlight the help and support tab despite the mouse clicking it. 
+
+fix all errors, highlight light, and mouse MUST FOLLOW EACH OTHER ALLL THE TIME.
+
+ALL THE DROPDOWN IN THE DASHBOARD TEXT ARE NOT VISIBLE, NOT READABLE, SEE THE IMAGE

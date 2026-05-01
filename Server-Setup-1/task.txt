@@ -1,0 +1,193 @@
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║  TUTORIAL OVERHAUL TASK — ALIVE CURSOR SYSTEM                                  ║
+║  For Replit Agent                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+
+OVERVIEW
+========
+There is an existing tutorial system in this project that needs to be overhauled.
+The tutorial currently works but uses Google Gemini TTS API calls (slow, network-dependent).
+It needs to be converted to use pre-recorded local MP3 files AND enhanced with an
+"alive cursor" choreography system where the cursor moves, clicks, types, and
+interacts with UI elements in sync with the MP3 narration.
+
+EXISTING FILES
+==============
+- client/src/components/tutorial.tsx  — The tutorial component (has guided comments)
+- client/src/App.tsx                  — Where Tutorial is rendered (has guided comments)
+- server/routes.ts                    — Backend API routes (has guided comments for MP3 serving)
+- tutorial_mp3/                       — Folder where MP3 files will be placed (tut1.mp3 to tut17.mp3)
+
+MP3 FILES
+=========
+- Located in: /tutorial_mp3/
+- Named: tut1.mp3, tut2.mp3, tut3.mp3, ... tut17.mp3
+- These are pre-recorded narrations for each of the 17 admin tutorial steps
+- They need to be served via a backend route: GET /api/tutorial-audio/:filename
+  (see the commented-out implementation in server/routes.ts)
+
+═══════════════════════════════════════════════════════════════════════════════════
+TASK 1: REPLACE GEMINI TTS WITH LOCAL MP3 FILES
+═══════════════════════════════════════════════════════════════════════════════════
+
+In client/src/components/tutorial.tsx, the playStep() function currently calls:
+  apiRequest("POST", "/api/voice-insight", {...})
+to get TTS audio from Google Gemini API.
+
+REPLACE THIS WITH:
+1. Uncomment and implement the route in server/routes.ts to serve MP3 files
+2. In playStep(), instead of the API call, do:
+   const audio = new Audio(`/api/tutorial-audio/tut${currentStep + 1}.mp3`);
+   audioRef.current = audio;
+3. Wait for audio to load (canplaythrough event), then play
+4. Remove the loading animation (CircularProgress) — MP3 loads near-instantly
+5. Keep the word-by-word text reveal synced to audio duration
+6. Keep the phase system (loading → playing → ready)
+7. Remove the import of apiRequest if no longer needed in this file
+
+═══════════════════════════════════════════════════════════════════════════════════
+TASK 2: IMPLEMENT THE "ALIVE CURSOR" CHOREOGRAPHY SYSTEM
+═══════════════════════════════════════════════════════════════════════════════════
+
+This is the main feature. The cursor should feel "alive" — it moves around the screen,
+clicks buttons, types text, hovers over elements, switches tabs, opens dialogs, etc.
+All actions are timed to sync with what the MP3 narration is saying.
+
+ARCHITECTURE:
+-------------
+Add a new interface for choreography actions:
+
+interface CursorAction {
+  triggerTime: number;      // seconds from MP3 start when this action fires
+  type: "move" | "click" | "doubleClick" | "type" | "hover" | "highlight" | "scroll" | "navigate";
+  target?: string;          // CSS selector (data-testid) of the element
+  value?: string;           // for "type" actions: the text to type letter by letter
+  duration?: number;        // how long the action takes (ms) — for move animations
+  highlightType?: "full" | "small-circle";  // full-screen vs small-circle spotlight
+  revert?: boolean;         // if true, undo this action when step ends (e.g., clear typed text)
+}
+
+Add an `actions` field to TutorialStep interface:
+  actions: CursorAction[];
+
+CURSOR BEHAVIOR:
+----------------
+- The cursor (white SVG arrow, already exists in the component) should smoothly animate
+  between positions using CSS transitions (transition: left 0.7s, top 0.7s)
+- On "move": cursor glides to the target element's center
+- On "click": cursor moves to target, then simulate a visual click (scale down briefly)
+  and trigger el.click()
+- On "doubleClick": same as click but trigger el.dispatchEvent(new MouseEvent('dblclick'))
+- On "type": cursor moves to input, clicks to focus, then types value letter-by-letter
+  by dispatching input events (set input.value, dispatch 'input' event)
+- On "hover": cursor moves to target, element gets a subtle highlight ring
+- On "highlight": change spotlight between full-screen and small-circle mode
+- On "scroll": scroll page to target element
+- On "navigate": click a sidebar nav link to change pages
+
+TIMING:
+-------
+After audio.play(), schedule all actions using setTimeout based on triggerTime:
+  step.actions.forEach(action => {
+    setTimeout(() => executeAction(action), action.triggerTime * 1000);
+  });
+
+The triggerTimes need to be estimated based on the MP3 narration content.
+Listen to each MP3 and note when keywords are spoken. For example in tut16.mp3:
+- At ~1s: "System Logs show" → full-screen highlight
+- At ~4s: "search" → move cursor to search box, click, type "login"
+- At ~7s: "filter" → move cursor to filter controls
+- At ~9s: "Click any log" → click a log entry row
+- At ~11s: "full details" → show detail dialog
+
+CLEANUP:
+--------
+When a step ends (phase → "ready" or user clicks Next):
+- Clear any typed text from inputs
+- Close any opened dialogs
+- Revert any visual changes
+- Clear all pending setTimeout timers
+
+═══════════════════════════════════════════════════════════════════════════════════
+TASK 3: SETTINGS PREVIEW (TUT14) — NON-DESTRUCTIVE THEME CHANGE
+═══════════════════════════════════════════════════════════════════════════════════
+
+During tut14 (Settings), the tutorial should:
+1. BEFORE the step starts: save the current theme settings (font, color, gradient)
+   by reading from the SettingsProvider context or API
+2. During narration: the alive cursor picks a random color theme and gradient,
+   clicks apply — the UI visually changes to show the preview
+3. AFTER tutorial completes (in onComplete callback in App.tsx):
+   Restore the original settings by calling the settings API with saved values
+4. This means the theme change is purely visual/temporary during the tutorial
+
+═══════════════════════════════════════════════════════════════════════════════════
+TASK 4: ENHANCED TRANSITIONS BETWEEN STEPS
+═══════════════════════════════════════════════════════════════════════════════════
+
+When transitioning between tutorial steps (e.g., tut15 → tut16):
+1. The cursor should first move to the sidebar
+2. Hover over the next page's nav link (e.g., "System Logs")
+3. Click it (navigate to the page)
+4. THEN start the new step's MP3 and choreography
+
+This makes it feel like the cursor is naturally navigating between pages,
+not just teleporting. The sidebar nav links have data-testid attributes like:
+  [data-testid='nav-inventory']
+  [data-testid='nav-orders']
+  [data-testid='nav-billing']
+  etc.
+
+Check the sidebar component (client/src/components/app-sidebar.tsx) for the
+actual data-testid values of each nav link.
+
+═══════════════════════════════════════════════════════════════════════════════════
+PER-STEP CHOREOGRAPHY SUMMARY
+═══════════════════════════════════════════════════════════════════════════════════
+
+Each step in ADMIN_STEPS[] in tutorial.tsx has detailed choreography comments.
+Here's a quick reference:
+
+TUT1  (tut1.mp3)  — Sidebar toggle: click to expand, click to collapse
+TUT2  (tut2.mp3)  — Search bar: type "cement", show results, clear
+TUT3  (tut3.mp3)  — Dashboard cards: hover each card, click period filter
+TUT4  (tut4.mp3)  — Revenue chart: hover bars, double-click for voice insight
+TUT5  (tut5.mp3)  — Customer map: click city dot, double-click, type AI query
+TUT6  (tut6.mp3)  — Inventory: click Add Item, show dialog, close
+TUT7  (tut7.mp3)  — Search inventory: type "ply", toggle grid/list, open actions menu
+TUT8  (tut8.mp3)  — Orders: click Create Order, type customer name, close
+TUT9  (tut9.mp3)  — Order tabs: click through status tabs, click an order
+TUT10 (tut10.mp3) — Billing: open search panel, click through search tabs
+TUT11 (tut11.mp3) — Accounting: highlight chart of accounts, switch to ledger
+TUT12 (tut12.mp3) — Reports: click Sales/Inventory/Financial tabs, hover export
+TUT13 (tut13.mp3) — Users: click Create User, show dialog, hover online dot
+TUT14 (tut14.mp3) — Settings: pick random color/gradient, apply preview (revert later)
+TUT15 (tut15.mp3) — Maintenance: hover export, upload area, auto-backup toggle
+TUT16 (tut16.mp3) — System Logs: type "login" in search, click log entry, show detail
+TUT17 (tut17.mp3) — Help: expand FAQ, move to feedback section, celebration
+
+═══════════════════════════════════════════════════════════════════════════════════
+IMPORTANT NOTES
+═══════════════════════════════════════════════════════════════════════════════════
+
+1. All cursor actions must be NON-DESTRUCTIVE — no real data is created/modified/deleted
+2. Typed text should be cleared when step ends
+3. Opened dialogs should be closed when step ends
+4. Settings changes during tut14 must be reverted when tutorial completes
+5. The cursor SVG is already in the component (white arrow with black stroke)
+6. The tutorial has a mute button — when muted, still show cursor choreography but no audio
+7. The "Next" button appears only after MP3 finishes and all actions complete
+8. Mobile: hide the animated cursor (already has hidden sm:block class)
+9. Employee tutorial (EMPLOYEE_STEPS) has 12 steps — these also need MP3 files
+   and choreography but are lower priority. Focus on admin 17 steps first.
+10. The data-testid attributes on all interactive elements are already in place
+    across all pages — use them as CSS selectors for cursor targets.
+
+═══════════════════════════════════════════════════════════════════════════════════
+FILES WITH GUIDED COMMENTS
+═══════════════════════════════════════════════════════════════════════════════════
+
+Search for "TUTORIAL OVERHAUL" or "ALIVE CURSOR" in these files:
+- client/src/components/tutorial.tsx  (main component — all step choreography comments)
+- client/src/App.tsx                  (where tutorial is rendered — settings revert note)
+- server/routes.ts                    (MP3 serving route — commented-out implementation)

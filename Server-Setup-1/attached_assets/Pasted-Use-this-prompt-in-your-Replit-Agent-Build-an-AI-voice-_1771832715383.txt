@@ -1,0 +1,134 @@
+Use this prompt in your Replit Agent:
+
+
+---
+
+Build an AI voice analytics system inside my admin dashboard.
+
+When a user double clicks any chart node (dot, bar, or point), show a floating input box near the clicked position. The user types a question about the data. When submitted, gather the full system JSON (sales, logs, revenue, users, analytics data already stored in system) and include the clicked node context. Send both to Gemini. Gemini must answer using only the provided JSON data. Convert the response into audio using Gemini native TTS with a youthful soft female voice (voiceName: "Leda"). Play audio automatically.
+
+While audio plays, show a floating subtitle bubble near the clicked node displaying the Gemini response text. The bubble must contain an X button that stops audio and closes the bubble. If another node is clicked, stop previous audio and replace the UI. UI must position relative to click coordinates, support mobile and desktop, and handle loading states.
+
+Add a floating Gemini icon fixed below the Home dashboard. When clicked, open a chat panel where users can ask any question about the system. This chat must be text-only (no audio). Messages must display a typing animation while Gemini is generating the response. The chat uses the same system JSON as context but returns only text.
+
+Architecture requirements: Frontend handles chart interaction, floating UI, audio playback, chat UI, and typing animation. Backend handles Gemini requests and audio generation. Use React frontend and Node.js Express backend. Create endpoint POST /api/voice-insight for audio responses and POST /api/gemini-chat for text chat.
+
+Gemini must be grounded to provided data only. System must be production-ready, responsive, and modular.
+
+
+---
+
+Use this backend Gemini TTS + text implementation:
+
+import express from "express";
+import fetch from "node-fetch";
+
+const app = express();
+app.use(express.json({ limit: "50mb" }));
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+async function generateSpeech(prompt) {
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: prompt }]
+          }
+        ],
+        generationConfig: {
+          responseModalities: ["AUDIO"],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: {
+                voiceName: "Leda"
+              }
+            }
+          }
+        }
+      })
+    }
+  );
+
+  const data = await response.json();
+
+  return {
+    text: data.candidates?.[0]?.content?.parts?.[0]?.text || "",
+    audioBase64: data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data || ""
+  };
+}
+
+async function generateText(prompt) {
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: prompt }]
+          }
+        ]
+      })
+    }
+  );
+
+  const data = await response.json();
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+}
+
+app.post("/api/voice-insight", async (req, res) => {
+  try {
+    const { question, clickedPoint, fullData } = req.body;
+
+    const prompt = `
+You are a business analytics assistant.
+Answer using only the provided JSON.
+Be concise and speak naturally.
+
+Clicked point:
+${JSON.stringify(clickedPoint)}
+
+User question:
+${question}
+
+Dashboard data:
+${JSON.stringify(fullData)}
+`;
+
+    const result = await generateSpeech(prompt);
+    res.json(result);
+  } catch {
+    res.status(500).send("voice generation failed");
+  }
+});
+
+app.post("/api/gemini-chat", async (req, res) => {
+  try {
+    const { message, fullData } = req.body;
+
+    const prompt = `
+You are an admin dashboard assistant.
+Answer using only provided data.
+
+User message:
+${message}
+
+Dashboard data:
+${JSON.stringify(fullData)}
+`;
+
+    const text = await generateText(prompt);
+    res.json({ text });
+  } catch {
+    res.status(500).send("chat failed");
+  }
+});
+
+app.listen(3000);
+```0

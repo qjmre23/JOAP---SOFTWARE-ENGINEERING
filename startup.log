@@ -1,0 +1,12 @@
+﻿
+> workspace@1.0.0 dev
+> cd Server-Setup-1 && npm run dev
+
+
+> rest-express@1.0.0 dev
+> cross-env NODE_ENV=development tsx server/index.ts
+
+11:11:07 PM [mongoose] Connected to MongoDB
+11:11:08 PM [seed] Database already seeded
+11:11:46 PM [express] serving on port 5000
+11:11:46 PM [search] Trie & hash indexes built: 10 items, 5 customers, 0 orders

@@ -1,0 +1,55 @@
+There is an existing interactive tutorial system in this project that needs to be overhauled. Read task.txt in the project root — it contains the full specification. Also search the codebase for comments containing "TUTORIAL OVERHAUL" and "ALIVE CURSOR" for inline guidance.
+Summary of what you need to do:
+Replace Gemini TTS with local MP3 files. The tutorial currently calls POST /api/voice-insight (Google Gemini TTS API) for each step's narration. Replace this with pre-recorded MP3 files located in the /tutorial_mp3/ folder, named tut1.mp3 through tut17.mp3. Add a backend route GET /api/tutorial-audio/:filename to serve them (see commented-out implementation in server/routes.ts). Update the playStep() function in client/src/components/tutorial.tsx to load audio from these local files instead of the API.
+Implement an "alive cursor" choreography system. Each tutorial step has a set of timed actions (move cursor, click buttons, type text, hover elements, switch tabs, open/close dialogs) that should execute in sync with the MP3 narration. Add a CursorAction interface and an actions array to each step. The cursor should smoothly animate between elements, simulate clicks and typing, and feel like a real person is demonstrating the system. Every step in ADMIN_STEPS has detailed choreography comments explaining exactly what the cursor should do and when.
+Settings preview (tut14): During the Settings tutorial step, the cursor should pick a random color theme and gradient, apply it as a visual preview, but revert all settings changes when the tutorial completes. Save original settings before the step, restore them in onComplete.
+Page transitions: When moving between tutorial steps on different pages, the cursor should first move to the sidebar, hover and click the next page's nav link, then start the new step — not just teleport.
+All actions must be non-destructive — no real data created/modified/deleted. Clear typed text, close opened dialogs, and revert visual changes when each step ends.
+The main files to modify are client/src/components/tutorial.tsx, client/src/App.tsx, and server/routes.ts. All three have inline comments marked "TUTORIAL OVERHAUL" guiding you. The task.txt file has the complete CursorAction interface spec, timing approach, and per-step choreography summary.
+
+
+
+to give you the context heres the script of the audios per mp3:
+tut1.mp3 — Welcome
+"Welcome to JOAP Hardware Trading management system! I'll guide you through all the features. This is the sidebar toggle. You can click it to expand or collapse the navigation menu on the left side."
+tut2.mp3 — Global Search
+"This is the global search bar. You can search for items, orders, and customers from anywhere in the system. Just type at least 2 characters and results will appear instantly."
+tut3.mp3 — Dashboard Overview
+"This is your dashboard. It shows summary cards with total earnings, orders, customers, and pending balance. Each card has a trend badge showing percentage change compared to the previous period. You can filter each card by daily, weekly, monthly, or yearly."
+tut4.mp3 — Revenue Chart & Voice Insight
+"This is the revenue chart showing your revenue and order trends. You can double-click on any chart or summary card to get AI-powered voice insights about that data point. Try it after the tutorial!"
+tut5.mp3 — Customer Distribution Map
+"This is the customer distribution map. It shows where your orders are coming from across the Philippines. Colored dots represent cities with orders. Click a dot to see details, or double-click to ask the AI assistant about that city's activity."
+tut6.mp3 — Inventory Management
+"This is the Inventory page. Here you can manage all your products. Click the Add Item button to add a new product with its name, category, price, quantity, and an optional image. As an admin, you can upload images directly."
+tut7.mp3 — Search & Filter Inventory
+"You can search for items by name using this search bar. You can also filter by category and switch between grid view and list view. To adjust prices or deduct stock, click the actions menu on any item."
+tut8.mp3 — Order Management
+"This is the Orders page. Click Create Order to place a new order. You'll need to enter the customer name, select items and quantities, choose a sales channel, and optionally add a delivery address. The total amount calculates automatically."
+tut9.mp3 — Order Tabs
+"Orders are organized by status tabs. You can view All orders, Pending Payment, Paid, Pending Release, Released, or Cancelled orders. Click on any order to see its full details, log payments, and update its status."
+tut10.mp3 — Billing & Payments
+"The Billing page shows all payment records. Click the search button to search by date range, order ID, GCash number, or reference number. Click on any payment to see the full order details."
+tut11.mp3 — Accounting
+"The Accounting page has the Chart of Accounts and General Ledger. You can add new ledger entries with debit and credit amounts. The system tracks all financial transactions automatically when orders are paid."
+tut12.mp3 — Reports
+"The Reports page lets you generate sales reports, inventory reports, and financial summaries. You can filter by date range and export reports for your records."
+tut13.mp3 — User Management
+"As an admin, you can manage users here. Create new accounts, change roles between Admin and Employee, reset passwords, and deactivate accounts. The green dot shows who is currently online. Note: you cannot deactivate the last admin account."
+tut14.mp3 — System Settings
+"In Settings, you can customize the system appearance. Choose from different fonts, color themes, and gradient options for the sidebar. Changes apply instantly across the entire system."
+tut15.mp3 — Maintenance & Backup
+"The Maintenance page lets you export backups, upload and restore from previous backups, and set up automatic scheduled backups. As an admin, you have full control over system maintenance."
+tut16.mp3 — System Logs
+"System Logs show every action taken in the system with timestamps and descriptions. You can search and filter logs to track who did what and when. Click any log entry for full details."
+tut17.mp3 — Help & Support
+"The Help page has frequently asked questions covering all system features. You can also send feedback or messages to administrators if you need additional assistance. That completes the tutorial! You now know all the features of JOAP Hardware Trading system."
+
+
+
+
+
+make sure you  testing them by doing tutorials, make sure its on time, focus on time, pointers on time etc.
+
+also in reports, make the chart look the same in the dashboard chart so overhaul the chart in the "reports" page.
+you can check that i already uploaded all the mp3's

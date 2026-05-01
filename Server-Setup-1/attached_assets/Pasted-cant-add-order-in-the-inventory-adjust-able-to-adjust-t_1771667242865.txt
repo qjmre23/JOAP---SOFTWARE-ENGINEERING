@@ -1,0 +1,69 @@
+cant add order
+in the inventory "adjust" - able to adjust the price
+quantity - cannot be set to negative number
+
+adding item - remove the barcode entry and any related to this
+
+when deducting an item, the quantity cannot be greater than the current quantity. if quantity is only 100 and the deduction quantity is 200, pop up a notification div.
+
+in the billing page "search". when click open a div to let the user decide what to search:
+lke this:
+|date| order ID | gcash # | reference|
+when date is click open a calender so user can click 
+and add "or search by range of date"
+in here its like:
+mm-dd-yyyy to mm-dd-yyyy
+
+if order id: prompt the user to enter number. the same with gcash # ref #
+
+
+make sure charts are working live, use chart js or any other plugins you have tha is accurate, beautiful. and save the state each append on our mongo db in which it will be load everytime. make sure the chart is up to date and reflect immediately.
+
+in system logs, make it that the user can click it, view each.
+and the deails must not be like" {"type":"deduction","quantit
+make it like this:
+the  (username) deduct () from the etc etc
+
+also in inventory "adjust" add "delete item" and pop up notification. only admin can delete this without confirmation. if its employee, admin must approve it in the "approval list" page. there admin can click it, view details, decline, accept, etc.
+also before admin can delete, confirm again if they want to delete it again
+
+
+the "search" on dashboard is that when for example user search "Completed Orders" show it, and thats only it. user can click it, view details, charts etc. apply to all., active users, total items, pending release etc. make sure the detailes displayed is very informational
+
+in the "search" for inventory. user can search the item name, display search result, click it display very detailed info
+
+
+in the search of orders,. user can search ref#, and customer name. display result, when click display detailed result
+
+remove the search in accounting and reports and at the "users" since it alreadt have "search users" below user management, and on settings, and on maintenance  and on help and on about.
+
+in the search of system logs user can search the targer, action, actor. display result, when click display detailed result 
+make sure on each pages, there is "auto predicting" on search. for example i only tye gc
+and it shows: gcash.
+
+and also,the search results on each pages are not the same so dont reference them to one another
+
+make the "help" more detailed add more 10 help
+
+and also i cant create user being an admin it displays"failed to create user" unexpected token<!DOCTYPE is not valid json
+
+and also when i click reset password it says "failed to create user" unexpected token<!DOCTYPE is not valid json
+
+and also when i click update role it says "failed to create user" unexpected token<!DOCTYPE is not valid json
+and also when i click update user it says "failed to create user" unexpected token<!DOCTYPE is not valid json
+
+also add in admin mode add an eye icon to display user password
+also when admin is revoking/updating user confirm again with load of 3s if want to remove. decline the removal if there is no admin in the system.
+
+also add a notification pop up alert with a sound: notification_alert.mp3. it will play once no loop 
+also make sure the charts in the dashboard is working as intended so use all plugins on inventory status, order by status, Revenue Over Time and on labels : Total Orders Today
+when click by the users, implement a working chart
+
+add a confirmation when logging out.
+also in the "help" this is only in employee side, there is a feature that allows them to send A message to the admin.
+
+and implement 20 more designs, list what are those and implement them, focusing on UI side.
+and also in setting add a feature that allows user to choose out of 10 fonts, out of 10 color thene out of 10 color combination gradients (make sure they are complement), and dont forget that colors, will apply to all pages, text boxes etc and if for example color is black, word must be white. make sure words, charts are readable even with color combinations, other colors etc so adjust them welll. study them correctly
+
+and also in the users add"offline/online" on users so admin can know if they are online.
+add more tables to our db if needed. do everything correctly

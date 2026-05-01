@@ -1,0 +1,6 @@
+﻿
+> rest-express@1.0.0 dev
+> cross-env NODE_ENV=development tsx server/index.ts
+
+11:07:09 PM [mongoose] Connected to MongoDB
+11:07:09 PM [seed] Database already seeded

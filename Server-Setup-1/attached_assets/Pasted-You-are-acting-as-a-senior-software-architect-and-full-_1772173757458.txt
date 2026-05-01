@@ -1,0 +1,29 @@
+You are acting as a senior software architect and full-stack engineer. You must analyze the existing repository and upgrade the system to strictly match the research paper requirements for the “Web-Based Supplier Management System for JOAP Hardware Trading with Accounting System”. If any of the required algorithms or behaviors below do not exist in the system, you must implement them fully end-to-end with real working code, connected to MongoDB, integrated into both backend and frontend, and used in real system behavior (not mock implementations, not placeholders, not comments).
+
+You must verify and ensure the system includes real implementations of hashing-based lookup, trie-based prefix search, FIFO inventory processing, ARIMA-based forecasting, and bcrypt password hashing. If any of these are missing or partially implemented, you must add them properly and integrate them into the system architecture.
+
+The system must implement hashing-based lookup for fast ID-based searching of records such as customers, items, orders, and tracking numbers. This must use indexed or hashed retrieval mechanisms and be exposed through the search module and API endpoints.
+
+The system must implement a real trie data structure in memory for predictive and prefix search functionality. This trie must be used by the global search bar to provide autocomplete suggestions for customers, items, and orders. The trie must rebuild on server startup and update when data changes. It must not be simulated or replaced with simple string matching.
+
+The system must implement FIFO (First In First Out) inventory logic. Inventory must be stored in batches or timestamped logs, and when items are released or deducted for orders, the oldest inventory stock must be deducted first. The system must maintain append-only inventory logs and must compute stock deduction based on FIFO rotation. Orders that release items must deduct inventory using FIFO rules, create inventory logs, and update stock consistently.
+
+The system must implement ARIMA-based or ARIMA-like forecasting for sales and revenue trends. This must run in real code, analyze historical order or revenue data, and produce forecast results used by charts and reports. If full ARIMA is too heavy, implement a simplified ARIMA-like time series model or moving average forecasting but it must produce future predictions and must be displayed in dashboard charts.
+
+The system must implement bcrypt password hashing for all authentication operations. Passwords must never be stored or transmitted as plaintext. User registration, login, password reset, and account management must use bcrypt hashing.
+
+All these algorithms must be integrated into real system workflows. Inventory release must trigger FIFO deduction. Search must use hashing lookup and trie prefix matching. Forecast charts must use ARIMA or ARIMA-like output. Authentication must use bcrypt. These must affect actual system behavior and not exist only as utilities.
+
+You must preserve append-only behavior for operational logs. Inventory logs, order status history, accounting entries, and audit logs must never be edited or deleted. Corrections must create new entries.
+
+You must maintain MongoDB persistence using Mongoose models. Update schemas if necessary to support inventory batches, forecasting data, search indexing, or session tracking.
+
+You must ensure the UI reflects these features. The search bar must show autocomplete suggestions powered by the trie. The dashboard must show forecasting charts. Inventory and order processing must follow FIFO logic. System actions must update charts and metrics automatically.
+
+You must not break existing functionality. You must extend the system safely, refactor where needed, and ensure the application builds and runs successfully after implementation.
+
+After implementing the missing algorithms, update documentation and code comments to explain how each algorithm is used in the system architecture and how it matches the research paper requirements.
+
+After completing all implementations, you must output a clear summary explaining what features or algorithms were added, what existing features were modified, what files were changed, and how the system behavior now satisfies the research requirements.
+
+Do not produce explanations during the process. Modify the codebase and implement the required features directly.

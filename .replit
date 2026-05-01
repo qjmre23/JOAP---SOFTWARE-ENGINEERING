@@ -1,0 +1,48 @@
+modules = ["nodejs-20"]
+[nix]
+channel = "stable-25_05"
+packages = ["unzip"]
+
+[agent]
+expertMode = true
+
+[userenv]
+
+[userenv.shared]
+RESEND_API_KEY = "re_eZgs8PeY_Fb2gm9fUgF6vw7tXZbFSQWkH"
+MONGODB_URI = "mongodb://mongo:rDxdMtwyoxtGLDYRIuyqooNRyahFZnyT@caboose.proxy.rlwy.net:24819"
+GOOGLE_API_KEY = "AIzaSyAk29z3EmFpMYcUOmpuZZGbi4uj6kMqjK4"
+GEMINI_API_KEY = "AIzaSyCdQ94-FiQgPAE_PE97BinIU1_cKHDzPgI"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Server-Setup-1 && npm run dev"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["npm", "run", "start"]
+build = ["npm", "run", "build"]

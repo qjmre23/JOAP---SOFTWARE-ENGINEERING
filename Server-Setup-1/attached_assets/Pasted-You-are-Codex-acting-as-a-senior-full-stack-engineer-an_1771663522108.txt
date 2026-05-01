@@ -1,0 +1,295 @@
+You are Codex acting as a senior full-stack engineer and software architect. Build a complete, working, production-grade school project web application that matches the attached research document describing a “Web-Based Supplier Management System for JOAP Hardware Trading with Accounting System”. You must implement the system as a real full-stack application with a modern dashboard UI and a fully functional API connected to MongoDB. The app must be usable immediately by running locally, and must also be deployable to any Node hosting (Railway/Replit/Render/etc). Do not output partial pseudocode. Do not leave any buttons non-functional. Do not leave any “TODO”. The result must be a complete repository that runs end-to-end.
+
+The stack must be TypeScript end-to-end. Frontend must be React + TypeScript (TSX) built with Vite. Backend must be Node.js + Express written in TypeScript. Database must be MongoDB using Mongoose. Use bcrypt for hashing passwords. Implement database-backed session tracking. Use strong runtime validation for all API requests using zod. Implement consistent API response structure (success boolean, data, error message, field errors). Add strong error handling and secure defaults (no leaking of password hashes, tokens, etc).
+
+The UI must be modern and inspired by real-world admin dashboards (SaaS style). Use TailwindCSS. Use a professional layout: left sidebar navigation, top header bar with global search, cards, tables, tabs, badges, toasts, modals, pagination, filters, and icons. Use modern gradient accents, clean typography, spacing, and consistent design tokens. Desktop-first admin dashboard feel, but fully responsive for tablet/phone.
+
+You must strictly follow the research paper’s rules: Direct Save and Append-Only. Direct Save means actions persist immediately to MongoDB after validation and UI updates instantly from the saved record. Append-Only means core operational logs cannot be edited/deleted to overwrite history. Inventory corrections must be new “Adjusting Entry” logs. Accounting corrections must be “Reversing Entry” logs. The UI must not show destructive edit/delete actions, and the API must reject such requests even if someone tries manually.
+
+Implement role-based access control with exactly two roles: ADMIN (Owner/Admin) and EMPLOYEE. ADMIN has full access to all modules and can manage users. EMPLOYEE can perform daily operations: inventory logs, create orders, view and process pending orders, and log payments (depending on module rules below). EMPLOYEE must not access maintenance backup/restore, cannot change system settings, cannot manage roles/users. The UI must hide restricted nav items and routes. The API must enforce RBAC server-side.
+
+You must implement these modules to match the paper’s DFDs/screens: Security, Search, Inventory, Orders, Billing & Payment, Accounting, Reports, Maintenance, Settings, Help, About. All modules must be real working code.
+
+DATABASE MODELS (MongoDB / Mongoose):
+Implement models inspired by ERD: User, UserSession, Settings, Customer, Item, InventoryLog, Order, OrderItem, BillingPayment, AccountingAccount (chart of accounts), GeneralLedgerEntry, SystemLog. Use correct indexes and constraints (unique username, indexed fields for search, and foreign-key-like references). Every document must have createdAt/updatedAt.
+
+IMPORTANT BUSINESS FLOW REQUIREMENT (new detailed behavior):
+The system must support a realistic workflow where orders go from being created → pending payment → paid → pending release → released → completed. The system must include:
+
+Inventory items with stock quantities and reorder levels.
+
+Orders that reserve/deduct inventory only when the item is released (or if you choose reservation earlier, ensure it is consistent and audit-friendly).
+
+Billing payments with GCash number and reference number.
+
+A dedicated “Pending Orders” tab where staff can process ready orders.
+
+When an EMPLOYEE opens a pending order, they can click a “Check & Release Items” action that:
+
+validates order is fully paid (or meets configured criteria),
+
+validates inventory stock is sufficient,
+
+creates inventory deduction logs (append-only inventory logs),
+
+marks the order as Released/Completed in status history (append-only),
+
+triggers revenue metrics updates,
+
+triggers charts updates automatically without page refresh.
+
+Revenue must reflect automatically after payment + release steps. Paid orders contribute to revenue. Released orders can be tracked as fulfilled revenue.
+
+REAL-TIME DASHBOARD & CHARTS (new requirement):
+Implement real-time charts that update automatically when inventory logs, orders, payments, releases occur. Use WebSockets (Socket.IO) OR SSE (Server-Sent Events). Pick one and implement fully. Emit events from backend on:
+
+ORDER_CREATED
+
+PAYMENT_LOGGED
+
+ORDER_STATUS_APPENDED
+
+ORDER_RELEASED
+
+INVENTORY_LOG_CREATED
+
+LEDGER_POSTED
+Frontend must subscribe and refresh relevant dashboard cards + charts live.
+
+Dashboard must include:
+
+Total Orders Today
+
+Completed Orders
+
+Pending Payments
+
+Pending Releases (Pending Orders)
+
+Today’s Revenue
+
+Total Revenue (date range filter)
+
+Active Users (based on active sessions)
+Charts must include:
+
+Revenue over time (line chart)
+
+Orders by status (bar chart)
+
+Inventory critical/low counts (donut/pie)
+
+Sales forecasting (ARIMA-like forecast series)
+Charts must be built using Recharts and must update live via real-time events.
+
+SECURITY MODULE:
+Implement login, logout, session restore, and forgot password token flow with expiry. Since no email is used, simulate it with a reset token page and token display. Use JWT for auth (access token) OR secure session cookie; whichever you choose must be implemented cleanly. Track sessions in UserSession. Inactive users cannot login.
+
+USERS / ACCOUNT MANAGEMENT (ADMIN-ONLY):
+Implement an ADMIN-only Users page at /admin/users and matching API under /api/admin/users.
+Frontend:
+
+Page visible only to ADMIN in sidebar.
+
+Table with sticky header, search, role filter, status filter, pagination.
+
+Columns: Username, Role, Status, Created At, Last Login (derived from UserSession), Actions.
+
+Create User modal: username, temp password, role (ADMIN/EMPLOYEE), active default true. Client validation.
+
+Actions: activate/deactivate, change role, reset password (one-time display only).
+Backend:
+
+GET /api/admin/users?search=&role=&status=&page=&pageSize=
+
+POST /api/admin/users
+
+PATCH /api/admin/users/:id/status
+
+PATCH /api/admin/users/:id/role
+
+POST /api/admin/users/:id/reset-password
+All validated with zod. All admin actions log SystemLog events USER_CREATED, USER_ROLE_CHANGED, USER_STATUS_CHANGED, USER_PASSWORD_RESET with actor/target metadata.
+
+SEARCH MODULE:
+Implement a global search bar that searches customers, items, orders by ID/name/category/prefix. Implement hashing + trie-like prefix search concept. You may implement:
+
+MongoDB indexes + cached suggestions,
+
+plus a real trie structure stored in memory that rebuilds at startup and updates on changes.
+It must be real code used by the search endpoint and the UI suggestions dropdown.
+
+INVENTORY MODULE:
+Must allow adding inventory items with:
+
+itemName, category, supplierName (or supplier info field), unitPrice, baseQuantity (or initial stock), reorderLevel, barcode (optional).
+Inventory must show:
+
+cards: total items, critical stock, low stock, total inventory value.
+
+alerts list for critical/low items.
+
+items table with status badges and search/filter.
+Inventory changes must be append-only via InventoryLog:
+
+restock log (positive)
+
+deduction log (negative)
+
+adjusting entry log (positive/negative with reason)
+Never allow editing/deleting past logs.
+Stock displayed must be derived consistently:
+
+either event-sourced (sum of logs + starting value),
+
+or hybrid (store currentQuantity + logs).
+Choose one approach and enforce audit-friendly consistency.
+
+ORDERS MODULE:
+Must support creating orders:
+
+select/create customer,
+
+add order items (product + quantity + unit price),
+
+calculate totals,
+
+set source channel (phone/email/message/walk-in),
+
+generate tracking number,
+
+initialize status history append-only.
+Order statuses must include at minimum:
+Pending Payment, Paid, Pending Release, Released, In Transit, Completed.
+The UI must include:
+
+Orders dashboard view with tabs (All, Pending Payment, Pending Orders / Pending Release, Released, Completed).
+
+Table with filters and “view order” page.
+Order detail page must show:
+
+customer info,
+
+items list,
+
+payment status,
+
+status timeline (append-only),
+
+“Release Items” action (EMPLOYEE can do if order is Paid/Pending Release).
+
+BILLING & PAYMENT MODULE (more detailed requirement):
+Must support logging payments for an order:
+
+payment method (GCash default),
+
+gcashNumber (string),
+
+gcashReferenceNumber (string),
+
+amountPaid,
+
+paymentDate/time,
+
+optional proof note (no file upload needed unless easy).
+Payment validation:
+
+gcashReferenceNumber must follow a defined pattern (ex: alphanumeric length check),
+
+prevent duplicates by reference number,
+
+prevent overpayment unless partial payments are allowed.
+Choose one payment approach and implement consistently:
+Option A: One payment per order (simple, recommended).
+Option B: Partial payments allowed; compute paidTotal and paidStatus.
+If full paid, automatically append order status to “Paid” and “Pending Release”.
+Billing UI must show:
+Pending Payments, Paid Today, Ready to Release, Total Revenue.
+Orders list with Log Payment action. Payment logs list (audit).
+
+PENDING ORDERS TAB (new requested feature):
+Add a dedicated UI tab labeled “Pending Orders” (Pending Release) that employees actively use.
+Behavior:
+
+shows only orders that are Paid and Pending Release,
+
+employee clicks an order row to open details,
+
+employee clicks “Check & Release Items”.
+That action must:
+
+verify order is eligible (paid, not already released),
+
+verify inventory has enough stock for each ordered item,
+
+create inventory deduction logs for each item (append-only),
+
+append order status to Released (and optionally Completed if that’s your workflow),
+
+emit real-time events so dashboard revenue and charts update instantly.
+Show a success toast: “Order released. Inventory updated. Revenue updated.”
+If insufficient stock, show error: which item is insufficient and current stock.
+
+ACCOUNTING MODULE:
+Implement chart of accounts. When payment is confirmed, auto-post ledger entries:
+
+Debit Cash/GCash
+
+Credit Sales Revenue
+For expenses: admin can create manual expense postings.
+Implement reversing entries as append-only.
+No edits/deletes. Show financial summary and ledger list.
+
+REPORTS MODULE:
+Must generate Inventory Report, Sales Report, Financial Report with date range filters.
+Export to CSV and PDF (server-side).
+Show charts and a forecasting chart.
+Implement a real ARIMA-like forecasting feature:
+
+It must run in code and output forecast points based on historical revenue/orders.
+If true ARIMA is too heavy, implement a simplified ARIMA-like or moving average model, but it must be working and documented in code comments and still produce forecast data shown in UI.
+
+MAINTENANCE MODULE (ADMIN only):
+Backup: export JSON dump for key collections.
+Restore: upload JSON and restore with safety checks.
+Log maintenance actions.
+
+SETTINGS MODULE (ADMIN only):
+Preferences stored in Settings collection (theme, company name, reorder threshold). Editable UI.
+
+HELP & ABOUT:
+About must show system version and developer credit: “JOAP HARDWARE” for copyright branding and “Developed by John Marwin”.
+Feedback form stores feedback into MongoDB (SystemLog or separate collection).
+
+AUDIT LOGGING:
+SystemLog must capture key actions: login/logout, create item, inventory logs, create order, log payment, release order, ledger posting, backup/restore, settings change, user management. Provide an admin logs viewer with filters.
+
+SEEDING:
+On first run or via script, seed:
+
+at least one ADMIN user with clear credentials printed in README and console,
+
+demo customers, demo items, demo orders, chart of accounts.
+Ensure seeded admin credentials are documented clearly: username + password.
+
+PROJECT STRUCTURE:
+Monorepo with client/ and server/. Root package.json scripts must run dev/build/start/seed. Must run locally via:
+
+npm install
+
+npm run dev
+Must build for production via:
+
+npm run build
+
+npm run start
+Include README with step-by-step for local and deployment (Railway/Replit).
+
+MONGODB CONNECTION REQUIREMENT:
+Create server/src/config/key_db.ts exporting MONGODB_URI constant as a placeholder Mongo URI string. Do not rely on .env. Include comment “Replace with your MongoDB URI”. The app must fail fast cleanly if URI is placeholder and show a friendly message in both server console and frontend screen “Database not configured”.
+
+TEMPLATE INTEGRATION REQUIREMENT:
+A user-provided HTML template (index.html) will be included in the repo. You must convert that template into React TSX components and use it as the visual base of the app. Remove any old content, any old copyright text, and remove all comments in HTML and CSS. Replace branding with “JOAP HARDWARE”. Map every sidebar button/link from the template to real React routes/pages. Any button in the template must lead to a working page. Remove unused template sections and create new pages as needed. Ensure the final UI still looks like the template design but now powered by React components and real data.
+
+OUTPUT REQUIREMENTS:
+Output the full repository code. If you hit length limits, stop at a file boundary and say “CONTINUE FROM: <path>”. Do not repeat files already shown. Ensure TypeScript strict mode enabled. Ensure the code builds and runs. No placeholders for functionality. No non-functional buttons.

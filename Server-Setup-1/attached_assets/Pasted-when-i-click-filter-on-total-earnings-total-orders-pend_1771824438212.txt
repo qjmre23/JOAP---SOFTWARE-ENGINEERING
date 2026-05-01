@@ -1,0 +1,38 @@
+when i click filter on total earnings total orders pending balance it wont let me change it just redirect me to different page remember it can be change and visual changes.
+also i cannot just just download backup but also "upload backup" of the json. now for future system error implement"auto backup" that can be change in maintenance page. on what is the interval like if hours, day etc and it's automatically saved in the setting like this:
+auto backup history:
+(etc etc time) - download button
+(etc etc time) - download button
+(etc etc time) - download button
+(etc etc time) - download button
+<show more  button> 
+make sure to save these all in database.
+and if i upload a backup, overwrite the database with that data but ask the admin with confirmation with checkbox button if they agreee then countdown the button 5sec before it can be click "confirm"
+
+
+now in inventory let admin/employee upload a pic with the item, of course pic is optional and they can be replace/edit/delete. but if employee uploads or edit it, it needs admin approval before it saves.
+also in inventory add an option on how the item wants to be displayed if they want it like this:
+item | item | item | item| etc
+item | item | item | item| etc
+and its structured as this: 
+item 1 for example:
+[pic] [adjust button]
+below:
+item name
+below
+category 
+suppplier
+price: qty:
+below 
+status:
+
+if horizontal display just put the pic before the item name.
+if no pic is uploaded, put nothing just a logo of
+upload, when click, they can upload. if employee, put a text "waiting for admin approval." 
+also only let 1 session for admin, only 1 device can log in. if another attempt, notify "another person is currently log in" the same with employees as well.
+make sure that images are saved in replit database not in the mongo db to save space just reference it to the mongo db something like:
+item name ->nail.jpg
+also in maintenance add a button "developer only" when click, it will wipe out the entire data everything. so prompt the dev ask them confirmation with delay button confirm of 8s. - this allows me to wipe out the system.
+but make sure that i can delete this button in the near future without affectint the system so put the logic in something like
+dev_button.tsx
+i can just delete that file and buttom will be gone and wont affect the system

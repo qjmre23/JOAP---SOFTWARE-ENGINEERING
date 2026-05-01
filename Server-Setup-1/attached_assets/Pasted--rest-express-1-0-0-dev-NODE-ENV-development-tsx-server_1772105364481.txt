@@ -1,0 +1,18 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+11:28:24 AM [mongoose] Connected to MongoDB
+11:28:24 AM [seed] Database already seeded
+11:28:26 AM [express] serving on port 5000
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+11:28:37 AM [express] POST /api/auth/login 200 in 229ms :: {"success":true,"data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTk5NzRmMzIyMTgyYmUzOTVhMDE2OWEiLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzcyMTA1MzE3LCJleHAiOjE3NzIxOT
+11:28:37 AM [express] GET /api/settings 304 in 93ms :: {"success":true,"data":{"_id":"699974f322182be395a016d3","companyName":"JOAP Hardware Trading","theme":"dark","reorderThreshold":10,"lowStockThreshold":20,"createdAt":"2026-02-21T09:03:47.928Z","updat
+11:28:37 AM [express] GET /api/auth/me 304 in 92ms :: {"success":true,"data":{"user":{"_id":"699974f322182be395a0169a","username":"admin","role":"ADMIN","isActive":true,"createdAt":"2026-02-21T09:03:47.464Z","updatedAt":"2026-02-21T09:03:47.464Z","__v":0
+11:28:37 AM [express] GET /api/dashboard/advanced 304 in 190ms :: {"success":true,"data":{"earnings":{"total":1350,"trend":0,"sparkline":[0,1350,0,0,0,0,0,0,0,0,0,0]},"orders":{"total":2,"trend":0,"sparkline":[0,2,0,0,0,0,0,0,0,0,0,0]},"customers":{"total":2,"trend"
+11:28:37 AM [express] GET /api/dashboard/advanced 304 in 210ms :: {"success":true,"data":{"earnings":{"total":1350,"trend":0,"sparkline":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1350,0,0,0,0,0,0,0]},"orders":{"total":2,"trend":0,"sparkline":[0,0,0,0,0,0,0,0,0,0,0,0,
+11:28:37 AM [express] GET /api/config/maps-key 304 in 69ms :: {"success":true,"data":{"key":"AIzaSyAk29z3EmFpMYcUOmpuZZGbi4uj6kMqjK4"}}
+11:28:37 AM [express] GET /api/dashboard/calendar-heatmap 304 in 92ms :: {"success":true,"data":{"year":2026,"month":2,"heatmap":{"2026-02-21":{"orders":1,"orderValue":1350,"payments":1,"revenue":1350},"2026-02-23":{"orders":1,"orderValue":5400,"payments":0,"revenue":0}}}}
+11:28:38 AM [express] GET /api/dashboard/customer-map 304 in 94ms :: {"success":true,"data":[{"city":"Quezon City","province":"Metro Manila","count":1,"revenue":5400}]}
+11:28:39 AM [express] GET /api/settings 304 in 96ms :: {"success":true,"data":{"_id":"699974f322182be395a016d3","companyName":"JOAP Hardware Trading","theme":"dark","reorderThreshold":10,"lowStockThreshold":20,"createdAt":"2026-02-21T09:03:47.928Z","updat
